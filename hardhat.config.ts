@@ -3,26 +3,6 @@ import '@nomiclabs/hardhat-ethers'
 import '@nomiclabs/hardhat-waffle'
 import '@nomiclabs/hardhat-etherscan'
 
-import { TASK_COMPILE_SOLIDITY_GET_SOLC_BUILD } from 'hardhat/builtin-tasks/task-names'
-import { subtask } from 'hardhat/config'
-import { TaskArguments } from 'hardhat/types'
-import { join as pathJoin } from 'path'
-
-// subtask(TASK_COMPILE_SOLIDITY_GET_SOLC_BUILD, async (args: TaskArguments, hre, runSuper) => {
-//   if (args.solcVersion !== '0.8.17') {
-//     throw new Error('need binary for solc version')
-//   }
-//
-//   const compilerPath = pathJoin(__dirname, 'bin', 'solc')
-//
-//   return {
-//     compilerPath,
-//     isSolcJs: false,
-//     version: '0.8.18',
-//     longVersion: '0.8.18-ci.2023.1.4+commit.6fc1be32.Darwin.appleclang',
-//   }
-// })
-
 export default {
   networks: {
     hardhat: {
@@ -68,9 +48,8 @@ export default {
     apiKey: process.env.ETHERSCAN_API_KEY,
   },
   solidity: {
-    version: '0.8.17',
+    version: '0.7.6',
     settings: {
-      viaIR: true,
       optimizer: {
         enabled: true,
         runs: 550,
